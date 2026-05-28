@@ -21,12 +21,6 @@ execute as @a[scores={givekit=1..},advancements={imperium:leave_spawn=false}] ru
 execute as @a[scores={itemreload=300..}] in overworld run function imperium:arena/item_distributor_300
 execute as @a[scores={rTotem=1..,itemreload=600..}] in overworld run function imperium:items/totem
 
-# summoning item reload engine
-execute as @a[scores={rBlazeEgg=1..,itemreload=300..}] in overworld run function imperium:summon_items/blazeegg
-execute as @a[scores={rCamelEgg=1..,itemreload=600..}] in overworld run function imperium:summon_items/camelegg
-execute as @a[scores={rZombieEgg=1..,itemreload=150..}] in overworld run function imperium:summon_items/zombieegg
-execute as @a[scores={rWolfEgg=1..,itemreload=600..}] in overworld run function imperium:summon_items/wolfegg
-
 # soup drop engine (old)
     #execute at @e[type=item,nbt={Item:{id:"minecraft:beetroot_soup"}}] run function imperium:soup/beet_soup_drop
     #execute at @e[type=item,nbt={Item:{id:"minecraft:mushroom_stew"}}] run function imperium:soup/mush_soup_drop

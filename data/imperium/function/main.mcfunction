@@ -58,12 +58,6 @@ scoreboard objectives add rHeal2Pot dummy
 scoreboard objectives add rRegenPot dummy
 scoreboard objectives add rSalmon dummy
 
-# Summoning Items
-scoreboard objectives add rBlazeEgg dummy
-scoreboard objectives add rCamelEgg dummy
-scoreboard objectives add rWolfEgg dummy
-scoreboard objectives add rZombieEgg dummy
-
 # Summoning Teams
 team add blaze
 team add zombie
@@ -174,9 +168,6 @@ scoreboard objectives add 5000 dummy
 scoreboard players set const 5000 5000
 scoreboard objectives add 10000 dummy
 scoreboard players set const 10000 10000
-
-# Player DB
-execute as @a run function pdb:new_player
 
 # Reset Temporary Player Data
 # data modify storage imperium:player_data players set value []

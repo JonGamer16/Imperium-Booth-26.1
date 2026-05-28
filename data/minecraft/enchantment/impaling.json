@@ -16,14 +16,14 @@
         },
         "requirements": {
           "condition": "any_of",
-          "terms": 
+          "terms":
           [
             {
               "condition": "entity_properties",
               "entity": "this",
               "predicate":
               {
-                "flags": 
+                "flags":
                 {
                   "is_swimming": true
                 }
@@ -32,9 +32,9 @@
             {
               "condition": "entity_properties",
               "entity": "this",
-              "predicate": 
+              "predicate":
               {
-                "type": "#sensitive_to_impaling"
+                "entity_type": "#minecraft:sensitive_to_impaling"
               }
             },
             {

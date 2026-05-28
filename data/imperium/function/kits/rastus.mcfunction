@@ -3,28 +3,29 @@ item replace entity @s armor.head with \
     netherite_helmet[\
         !max_damage,\
         attribute_modifiers=[\
-            {id:"head",type:"armor",amount:2,operation:"add_value",slot:"head"}],\
+            {id:"head",type:"armor",amount:14,operation:"add_value",slot:"head"}],\
         item_model="minecraft:leather_helmet",\
-        dyed_color=3949738] 1
+        dyed_color=3949738,\
+        trim={material:"lapis",pattern:"dune"}] 1
 item replace entity @s armor.chest with \
     netherite_chestplate[\
         !max_damage,\
-        attribute_modifiers=[\
-            {id:"chest",type:"armor",amount:5,operation:"add_value",slot:"chest"}],\
-        item_model="minecraft:chainmail_chestplate"] 1
+        !attribute_modifiers,\
+        item_model="minecraft:chainmail_chestplate",\
+        trim={material:"lapis",pattern:"silence"}] 1
 item replace entity @s armor.legs with \
     netherite_leggings[\
         !max_damage,\
-        attribute_modifiers=[\
-            {id:"legs",type:"armor",amount:5,operation:"add_value",slot:"legs"}],\
-        item_model="minecraft:chainmail_leggings"] 1
+        !attribute_modifiers,\
+        item_model="minecraft:chainmail_leggings",\
+        trim={material:"lapis",pattern:"sentry"}] 1
 item replace entity @s armor.feet with \
     netherite_boots[\
         !max_damage,\
-        attribute_modifiers=[\
-            {id:"feet",type:"armor",amount:2,operation:"add_value",slot:"feet"}],\
+        !attribute_modifiers,\
         item_model="minecraft:leather_boots",\
-        dyed_color=3949738] 1
+        dyed_color=3949738,\
+        trim={material:"iron",pattern:"raiser"}] 1
 
 # Weapon
 item replace entity @s hotbar.0 with \

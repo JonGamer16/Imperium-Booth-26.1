@@ -64,7 +64,7 @@ item replace entity @s hotbar.1 with \
 #   [Offhand / Hotbar items]
 
 #   Healing Item: Chorus Fruit
-give @s
+give @s \
     chorus_fruit[\
         max_stack_size=1,\
         food={nutrition:0,saturation:0,can_always_eat:true},\

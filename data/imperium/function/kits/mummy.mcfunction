@@ -31,29 +31,29 @@ item replace entity @s armor.feet with \
 item replace entity @s weapon.offhand with \
     player_head[\
         max_damage=70,\
-        profile={id:"71ffa389-da0a-45a6-b038-437b45a725e7"},\
+        profile="Mummy",\
         item_model="minecraft:player_head",\
-        enchantments={"protection":3,"imperium:chinks":1,"imperium:brittle":1}\
+        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1}\
     ] 1
 item replace entity @s hotbar.6 with \
     netherite_chestplate[\
         max_damage=80,\
         item_model="minecraft:netherite_chestplate",\
-        enchantments={"protection":3,"imperium:chinks":1,"imperium:brittle":1},\
+        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
         trim={material:"quartz",pattern:"silence"}\
     ] 1
 item replace entity @s hotbar.7 with \
     netherite_leggings[\
         max_damage=90,\
         item_model="minecraft:netherite_leggings",\
-        enchantments={"protection":3,"imperium:chinks":1,"imperium:brittle":1},\
+        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
         trim={material:"quartz",pattern:"rib"}\
     ] 1
 item replace entity @s hotbar.8 with \
     netherite_boots[\
         max_damage=100,\
         item_model="minecraft:netherite_boots",\
-        enchantments={"protection":3,"imperium:chinks":1,"imperium:brittle":1},\
+        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
         trim={material:"quartz",pattern:"rib"}\
     ] 1
 
@@ -64,7 +64,7 @@ item replace entity @s hotbar.0 with \
     netherite_axe[\
         !max_damage,\
         item_model="minecraft:golden_axe",\
-        enchantments={"imperium:chinks":1}\
+        enchantments={"imperium:chinks_curse":1}\
     ] 1
 
 # Enchanted Sword
@@ -72,7 +72,7 @@ item replace entity @s hotbar.1 with \
     netherite_sword[\
         max_damage=20,\
         item_model="minecraft:golden_sword",\
-        enchantments={"sharpness":3,"sweeping_edge":3,"imperium:chinks":1}\
+        enchantments={"sharpness":3,"sweeping_edge":3,"imperium:chinks_curse":1}\
     ] 1
 
 

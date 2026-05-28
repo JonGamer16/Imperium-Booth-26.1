@@ -5,27 +5,31 @@ item replace entity @s armor.head with \
             {id:"armor",type:"armor",amount:14,operation:"add_value",slot:"head"}\
         ],\
         item_model="minecraft:leather_helmet",\
-        dyed_color=14464401\
+        dyed_color=8606770,\
+        trim={material:"copper",pattern:"dune"}\
     ] 1
 item replace entity @s armor.chest with \
     netherite_chestplate[\
         !max_damage,\
         !attribute_modifiers,\
-        item_model="minecraft:chainmail_chestplate"\
+        item_model="minecraft:chainmail_chestplate",\
+        trim={material:"iron",pattern:"silence"}\
     ] 1
 item replace entity @s armor.legs with \
     netherite_leggings[\
         !max_damage,\
         !attribute_modifiers,\
         item_model="minecraft:leather_leggings",\
-        dyed_color=14464401\
+        dyed_color=14464401,\
+        trim={material:"iron",pattern:"snout"}\
     ] 1
 item replace entity @s armor.feet with \
     netherite_boots[\
         !max_damage,\
         !attribute_modifiers,\
         item_model="minecraft:leather_boots",\
-        dyed_color=14464401\
+        dyed_color=14464401,\
+        trim={material:"copper",pattern:"bolt"}\
     ] 1
 
 item replace entity @s hotbar.0 with \

@@ -25,6 +25,6 @@
     },
     "rewards":
     {
-        "function": "imperium:enchantments/barbs_hook"
+        "function": "imperium:enchantments/barbs"
     }
 }
