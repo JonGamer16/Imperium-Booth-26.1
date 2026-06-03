@@ -1,4 +1,4 @@
-#   Shieldsman Kit - Balanced melee with shield and ranged option
+#   Jeru Cliffshield
 
 #   [ARMOR]
 item replace entity @s armor.head with \
@@ -49,11 +49,12 @@ item replace entity @s hotbar.1 with \
             {type:"attack_speed",amount:-2.8,operation:"add_value",slot:"mainhand",id:"base_attack_speed"},\
             {type:"entity_interaction_range",amount:0.3,operation:"add_value",slot:"mainhand",id:"mainhand"},\
             {type:"attack_knockback",amount:-0.5,operation:"add_value",slot:"mainhand",id:"mainhand"},\
-        ]\
+        ],\
+        custom_data={"imperium_healing":1b}\
     ] 1
 
 #   [MELEE] Steel Broadsword
-#       6|1.4, +0.1 KBR, Sweeping Edge 3
+#       6 | 1.4, +0.1 KBR, Sweeping Edge 3
 item replace entity @s hotbar.0 with \
     netherite_sword[\
         !max_damage,\
@@ -70,61 +71,37 @@ item replace entity @s hotbar.0 with \
             {type:"attack_damage",amount:5,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
             {type:"attack_speed",amount:-2.6,operation:"add_value",slot:"mainhand",id:"base_attack_speed"},\
             {type:"knockback_resistance",amount:0.1,operation:"add_value",slot:"mainhand",id:"knockback_resistance"}\
-        ]\
+        ],\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
-#   [TOOL] Light Crossbow: 2 Arrows
+#   [TOOL] Light Crossbow
 item replace entity @s hotbar.2 with \
     crossbow[\
         !max_damage,\
         custom_name={color:"white",italic:false,text:"Light Crossbow"},\
-        enchantments={"minecraft:power":1}\
+        enchantments={"minecraft:power":1},\
+        custom_data={"imperium_kit":1b},\
     ] 1
 
 #   [SLOT 1] Shield
 #       30hp, 0.35s delay, 60 deg angle
-item replace entity @s weapon.offhand with \
-    shield[\
-        max_damage=30,\
-        base_color="black",\
-        banner_patterns=[\
-            {pattern:"gradient",color:"white"},\
-            {pattern:"gradient_up",color:"light_gray"},\
-            {pattern:"straight_cross",color:"gray"},\
-            {pattern:"border",color:"gray"},\
-            {pattern:"rhombus",color:"gray"}\
-        ],\
-        blocks_attacks={\
-            item_damage:{base:1,factor:1,threshold:8},\
-            damage_reductions:[\
-                {type:"generic",base:1,factor:1,horizontal_blocking_angle:60}\
-            ],\
-            block_delay_seconds:0.35\
-        }\
-    ] 1
+function imperium:kits/cliffshield/cd1_shield
 
 #   [SLOT 2] Arrows
-item replace entity @s hotbar.8 with \
-    arrow 2
+#       2 count
+function imperium:kits/cliffshield/cd2_arrows
 
 #   [SLOT 3] Rook Rush
-item replace entity @s hotbar.3 with \
-    potion[\
-        potion_contents={\
-            custom_effects:[\
-                {id:"minecraft:speed",amplifier:4,duration:1s}\
-            ]}\
-    ] 1
+#       Speed 5 | 1s
+function imperium:kits/cliffshield/cd3_potion
+
 
 #   [HEAL] Mushroom Stew
-give @s mushroom_stew[\
-    food={nutrition:0,saturation:0,can_always_eat:true},\
-    consumable={\
-        consume_seconds:0,\
-        on_consume_effects:[{type:"apply_effects",effects:[\
-            {id:"instant_health",amplifier:1,duration:1}]}]},\
-        use_remainder={id:"bowl",count:1}] 16
+loot give @s loot imperium:cliffshield/healing
 
-scoreboard players set @s im_abilityCdA 300
-scoreboard players set @s im_abilityCdB 300
-scoreboard players set @s im_abilityCdC 300
+scoreboard players operation @s im_abilityCdA = #Cliffshield im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Cliffshield im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Cliffshield im_abilityCdC
+
+tag @s add im.kit_cliffshield

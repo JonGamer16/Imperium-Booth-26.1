@@ -33,61 +33,75 @@ item replace entity @s weapon.offhand with \
         max_damage=70,\
         profile="Mummy",\
         item_model="minecraft:player_head",\
-        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1}\
+        enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 item replace entity @s hotbar.6 with \
     netherite_chestplate[\
         max_damage=80,\
         item_model="minecraft:netherite_chestplate",\
         enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
-        trim={material:"quartz",pattern:"silence"}\
+        trim={material:"quartz",pattern:"silence"},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 item replace entity @s hotbar.7 with \
     netherite_leggings[\
         max_damage=90,\
         item_model="minecraft:netherite_leggings",\
         enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
-        trim={material:"quartz",pattern:"rib"}\
+        trim={material:"quartz",pattern:"rib"},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 item replace entity @s hotbar.8 with \
     netherite_boots[\
         max_damage=100,\
         item_model="minecraft:netherite_boots",\
         enchantments={"protection":3,"imperium:chinks_curse":1,"imperium:brittle_curse":1},\
-        trim={material:"quartz",pattern:"rib"}\
+        trim={material:"quartz",pattern:"rib"},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
 # Weapons
 
-# Unbreakable Axe
+#   [MELEE] Golden Axe
+#       7 | 1
 item replace entity @s hotbar.0 with \
     netherite_axe[\
         !max_damage,\
         item_model="minecraft:golden_axe",\
-        enchantments={"imperium:chinks_curse":1}\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
-# Enchanted Sword
+#   [MELEE] Charged Sword
+#       6 | 1.6, Sweeping Edge 3
 item replace entity @s hotbar.1 with \
     netherite_sword[\
         max_damage=20,\
         item_model="minecraft:golden_sword",\
-        enchantments={"sharpness":3,"sweeping_edge":3,"imperium:chinks_curse":1}\
+        enchantments={"sharpness":3,"sweeping_edge":3,"imperium:chinks_curse":1},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
 
-#   Healing Item: Energy Crystal
+#   [HEALING] Energy Crystal
+#       10 x 8 HP, Regeneration 5|2s, 
 give @s end_crystal[\
-    !can_place_on,\
-    custom_name="Energy Crystal",\
-    max_stack_size=1,\
-    food={nutrition:0,saturation:0,can_always_eat:true},\
-    consumable={\
-        consume_seconds:0,\
-        on_consume_effects:[{type:"apply_effects",effects:[\
-            {id:"instant_health",amplifier:1,duration:1},\
-            {id:"regeneration",amplifier:4,duration:2}]}]},\
-        use_remainder={"id":"bowl",count:1}] 10
+        !can_place_on,\
+        custom_name="Energy Crystal",\
+        max_stack_size=1,\
+        food={nutrition:0,saturation:0,can_always_eat:true},\
+        consumable={\
+            consume_seconds:0,\
+            on_consume_effects:[{type:"apply_effects",effects:[\
+                {id:"instant_health",amplifier:1,duration:1s},\
+                {id:"regeneration",amplifier:4,duration:2s}]}]},\
+            use_remainder={"id":"bowl",count:1},\
+        custom_data={"imperium_healing":1b}\
+    ] 10
 
-scoreboard players set @s rEnergyCrystal 1
-scoreboard players set @s rGoldArmor 1
+#   Ability Cooldowns
+scoreboard players operation @s im_abilityCdA = #Mummy im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Mummy im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Mummy im_abilityCdC
+
+tag @s add im.kit_mummy

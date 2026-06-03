@@ -4,5 +4,9 @@
 #   scoreboard players set @s im_abilityCdA <damage_units>
 # Placeholder: resets all cooldowns to prevent continuous firing during development
 scoreboard players set @s im_abilityCdA 300
-scoreboard players set @s im_abilityCdB 300
-scoreboard players set @s im_abilityCdC 300
+execute \
+    if score @s im_abilityCdA matches 0 \
+    run function imperium:kits/levent/cd1_arrows
+execute \
+    if score @s im_abilityCdB matches 0 \
+    run function imperium:kits/levent/cd2_shield

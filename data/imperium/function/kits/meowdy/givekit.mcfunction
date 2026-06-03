@@ -36,7 +36,8 @@ item replace entity @s hotbar.0 with \
         attribute_modifiers=[\
             {type:"attack_damage",amount:5,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
             {type:"attack_speed",amount:-2.4,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\
-        ]\
+        ],\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
 item replace entity @s weapon.offhand with \
@@ -44,7 +45,8 @@ item replace entity @s weapon.offhand with \
         !max_damage,\
         enchantments={\
             "quick_charge":3,"multishot":1\
-        }\
+        },\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
 item replace entity @s hotbar.1 with \
@@ -52,11 +54,12 @@ item replace entity @s hotbar.1 with \
         !max_damage,\
         enchantments={\
             "multishot":1\
-        }\
+        },\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
 item replace entity @s hotbar.8 with \
-    arrow 4
+    arrow[custom_data={"imperium_kit":1b}] 4
 
 #   Healing Item: Salmon
 give @s cooked_salmon[\
@@ -65,7 +68,12 @@ give @s cooked_salmon[\
     consumable={\
         consume_seconds:0,\
         on_consume_effects:[{type:"apply_effects",effects:[\
-            {id:"instant_health",amplifier:1,duration:1}]}]}] 16
+            {id:"instant_health",amplifier:1,duration:1}]}]},\
+    custom_data={"imperium_healing":1b}] 16
 
-scoreboard players set @s rArrow 4
-scoreboard players set @s rMushSoup 1
+#   Ability Cooldowns
+scoreboard players operation @s im_abilityCdA = #Meowdy im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Meowdy im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Meowdy im_abilityCdC
+
+tag @s add im.kit_meowdy

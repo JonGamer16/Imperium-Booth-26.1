@@ -27,7 +27,8 @@ item replace entity @s armor.feet with \
         dyed_color=3949738,\
         trim={material:"iron",pattern:"raiser"}] 1
 
-# Weapon
+#   [MELEE] Light Rapier
+#       2 | 7, +1.0 Knockback
 item replace entity @s hotbar.0 with \
     netherite_sword[\
         !max_damage,\
@@ -36,12 +37,21 @@ item replace entity @s hotbar.0 with \
         minimum_attack_charge=1.0,\
         attribute_modifiers=[\
             {id:"attack_damage",type:"attack_damage",amount:2,operation:"add_value",slot:"mainhand"},\
-            {id:"attack_speed",type:"attack_speed",amount:2.7,operation:"add_value",slot:"mainhand"},\
-            {id:"attack_knockback",type:"attack_knockback",amount:-1.0,operation:"add_value",slot:"mainhand"}]] 1
+            {id:"attack_speed",type:"attack_speed",amount:3,operation:"add_value",slot:"mainhand"},\
+            {id:"attack_knockback",type:"attack_knockback",amount:-1.0,operation:"add_value",slot:"mainhand"}],\
+        custom_data={"imperium_kit":1b}] 1
 
-#   Healing Item: Instant Health II Potion
+#   [HEALING] Splash Healing 2 Potion
+#       16 x 8 HP
 give @s potion[\
     potion_contents={custom_effects:[\
-        {id:"instant_health",amplifier:1,duration:1}]}] 16
+        {id:"instant_health",amplifier:1,duration:1}]},\
+    custom_data={"imperium_healing":1b}\
+    ] 16
 
-scoreboard players set @s rHeal2Pot 1
+#   Ability Cooldowns
+scoreboard players operation @s im_abilityCdA = #Rastus im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Rastus im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Rastus im_abilityCdC
+
+tag @s add im.kit_rastus

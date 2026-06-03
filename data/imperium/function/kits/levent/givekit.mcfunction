@@ -1,6 +1,6 @@
-#   [Kit Name] - [Kit Description]
+#   Levent the Shulker Knight
 
-#   Armor
+#   [ARMOR]
 item replace entity @s armor.head with \
     netherite_helmet[\
         !max_damage,\
@@ -37,31 +37,56 @@ item replace entity @s armor.feet with \
         item_name={color:"light_purple",italic:false,text:"[Kit] Boots"}\
     ] 1
 
-#   [Weapon Name]: [damage]|[speed], [enchantments]
-#   [Weapon description]
+#   [MELEE] End Rod
+#       5 | 2
 item replace entity @s hotbar.0 with \
     netherite_sword[\
         !max_damage,\
         item_model="minecraft:end_rod",\
         custom_name={color:"light_purple",italic:false,text:"[Weapon Name]"},\
         attribute_modifiers=[\
-            {type:"attack_damage",amount:7,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
-            {type:"attack_speed",amount:-2.4,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\
-        ]\
+            {type:"attack_damage",amount:4,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
+            {type:"attack_speed",amount:-2,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\
+        ],\
+        custom_data={"imperium_kit":1b},\
     ] 1
 
-#   [Secondary Name]: [damage]|[speed]
-#   [Secondary description]
+#   [TOOL] Bow
 item replace entity @s hotbar.1 with \
-    end_rod[\
-        custom_name={color:"light_purple",italic:false,text:"[Secondary Name]"},\
-        attribute_modifiers=[\
-            {type:"attack_damage",amount:5,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
-            {type:"attack_speed",amount:-2.0,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\
-        ]\
+    bow[\
+        !max_damage,\
+        custom_name={color:"white",italic:false,text:"Aero Shot"},\
+        custom_data={"imperium_kit":1b},\
     ] 1
 
-#   [Offhand / Hotbar items]
+#   [TOOL] Gravity Flower
+item replace entity @s weapon.offhand with \
+    chorus_flower[\
+        max_damage=30,\
+        custom_name={color:"white",italic:false,text:"Reversal Shield"},\
+        attribute_modifiers=[\
+            {type:"gravity",amount:-0.5,operation:"add_multiplied_base",slot:"hand",id:"hand"}\
+        ],\
+        custom_data={"imperium_kit":1b}\
+    ] 1
+
+#   [SLOT 1] Levitation Arrow
+item replace entity @s hotbar.8 with \
+    tipped_arrow[\
+        potion_contents={custom_effects:[\
+            {id:"levitation",amplifier:1,duration:50}]},\
+        custom_data={"imperium_kit":1b}\
+    ] 1
+
+#   [SLOT 2] Shield
+item replace entity @s weapon.offhand with \
+    shield[\
+        max_damage=30,\
+        custom_name={color:"white",italic:false,text:"Reversal Shield"},\
+        custom_data={"imperium_kit":1b}\
+    ]
+
+#   [SLOT 3] [Empty]
 
 #   Healing Item: Chorus Fruit
 give @s \
@@ -73,5 +98,13 @@ give @s \
             on_consume_effects:[\
                 {type:"apply_effects",effects:[\
                     {id:"instant_health",amplifier:1,duration:1}]},\
-                {type:"teleport_randomly",diameter:16}]}\
+                {type:"teleport_randomly",diameter:16}]},\
+        custom_data={imperium_healing:1b}\
     ] 16
+
+#   Ability Cooldowns
+scoreboard players operation @s im_abilityCdA = #Levent im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Levent im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Levent im_abilityCdC
+
+tag @s add im.kit_levent

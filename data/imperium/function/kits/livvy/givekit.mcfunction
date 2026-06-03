@@ -39,6 +39,8 @@ item replace entity @s armor.feet with \
         custom_name={italic:false,text:"[Boots Name]"}\
     ] 1
 
+#   [MELEE] Fang
+#       6 | 2, Crits, Lifesteal
 item replace entity @s hotbar.0 with \
     netherite_sword[\
         !max_damage,\
@@ -47,16 +49,50 @@ item replace entity @s hotbar.0 with \
             {type:"attack_damage",amount:5,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
             {type:"attack_speed",amount:-2.4,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\
         ],\
-        custom_name={italic:false,text:"[Sword Name]"}\
+        enchantments={"imperium:crits":3,"imperium:lifesteal":5},\
+        custom_name={italic:false,text:"[Sword Name]"},\
+        custom_data={"imperium_kit":1b}\
     ] 1
 
-#   Healing Item: Beetroot Soup
-give @s beetroot_soup[\
-    food={nutrition:0,saturation:0,can_always_eat:true},\
-    consumable={\
-        consume_seconds:0,\
-        on_consume_effects:[{type:"apply_effects",effects:[\
-            {id:"instant_health",amplifier:0,duration:1}]}]},\
-        use_remainder={"id":"bowl",count:1}] 32
+#   [SLOT 1] Leap Feather
+item replace entity @s weapon.offhand with \
+    feather[\
+        enchantments={"imperium:wip_leap":2},\
+        custom_data={"imperium_kit":1b},\
+    ] 1
 
-scoreboard players set @s rBeetSoup 1
+#   [SLOT 2] Throwable Web
+item replace entity @s hotbar.1 with \
+    cobweb[\
+        max_stack_size=1,\
+        consumable={consume_seconds:0.05,sound:"entity.spider.ambient"},\
+        custom_data={"imperium_kit":1b},\
+    ] 1
+
+#   [SLOT 3] Acid Potion
+item replace entity @s hotbar.2 with \
+    splash_potion[\
+        potion_contents={custom_effects:[\
+            {id:"poison",amplifier:2,duration:40}]},\
+        custom_data={"imperium_kit":1b},\
+    ] 1
+
+#   [HEALING] Beetroot Soup
+#       20 x 8 HP
+give @s beetroot_soup\
+    [\
+        food={nutrition:0,saturation:0,can_always_eat:true},\
+        consumable={\
+            consume_seconds:0,\
+            on_consume_effects:[{type:"apply_effects",effects:[\
+                {id:"instant_health",amplifier:0,duration:1}]}]},\
+            use_remainder={"id":"bowl",count:1},\
+        custom_data={"imperium_healing":1b}\
+    ] 20
+
+#   Ability Cooldowns
+scoreboard players operation @s im_abilityCdA = #Livvy im_abilityCdA
+scoreboard players operation @s im_abilityCdB = #Livvy im_abilityCdB
+scoreboard players operation @s im_abilityCdC = #Livvy im_abilityCdC
+
+tag @s add im.kit_livvy
