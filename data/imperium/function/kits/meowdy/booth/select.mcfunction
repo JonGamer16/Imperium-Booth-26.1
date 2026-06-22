@@ -3,7 +3,42 @@
 scoreboard players set @s givekit 2
 function imperium:arena/givekit
 
-tellraw @s ["",{text:"\n  "},{text:"Quin Meowdy",color:"gold",bold:true},{text:"   The Duelcat\n",color:"gray",italic:true,bold:false},{text:"  • ",color:"dark_gray"},{text:"Shortsword",color:"gold"},{text:" — quick strikes\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Cat Claw",color:"gold"},{text:" — blinding attack speed, low knockback\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Quickdraw & Birdshot",color:"gold"},{text:" — twin crossbows\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Leap Feather",color:"gold"},{text:" — ground-launch hop\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Salmon",color:"gold"},{text:" — healing\n",color:"gray"}]
+tellraw @s \
+[   "",\
+    {text:"\n  "},\
+    {color:"gold",bold:true,\
+                            text:"Quin Meowdy - The Gunslinging Cowcat \n\n"},\
+    {color:"gold",\
+                            text:"  • [Melee] "},\
+    {color:"white",\
+                            text:"Shortsword"},\
+    {color:"yellow",\
+                            text:" — Slightly increased attack speed\n"},\
+    {color:"gold",\
+                            text:"  • [Melee] "},\
+    {color:"white",\
+                            text:"Cat Claw"},\
+    {color:"yellow",\
+                            text:" — Extreme Attack Speed; Reduced Knockback\n"},\
+    {color:"gold",\
+                            text:"  • [Ranged] "},\
+    {color:"white",\
+                            text:"Quickdraw & Birdshot"},\
+    {color:"yellow",\
+                            text:" — Twin crossbows for speed and coverage\n"},\
+    {color:"gold",\
+                            text:"  • [Consumable] "},\
+    {color:"white",\
+                            text:"Leap Feather"},\
+    {color:"yellow",\
+                            text:" — Leap about 15 blocks and briefly gain Speed 2\n"},\
+    {color:"gold",\
+                            text:"  • [Healing] "},\
+    {color:"white",\ 
+                            text:"Salmon x16"},\
+    {color:"yellow",\
+                            text:" — Heals 8 HP\n"}\
+]
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 title @s actionbar {text:"Quin Meowdy selected",color:"gold"}

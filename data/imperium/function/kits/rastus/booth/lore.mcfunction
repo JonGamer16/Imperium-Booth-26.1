@@ -3,12 +3,12 @@
 tellraw @s \
 [   "",\
     {   text:"\n  "},\
-    {color:"aqua",bold:true,\
+    {color:"blue",bold:true,\
         text:"Rastus - The Lightning Duelist"},\
     {bold:false,\
         text:"\n\n"},\
-    {color:"aqua",italic:true,\
-        text:"This kid has a one track mind on becoming the world's greatest duelist. \
+    {color:"blue",italic:true,\
+        text:" This kid has a one track mind on becoming the world's greatest duelist. \
         From a young age, he's been molded into a perfect fencer, optimizing \
         his movements and drilling his tactics for hours per day. Once, a \
         ferocious, two-legged metal monster wielding a Montante prodded into \

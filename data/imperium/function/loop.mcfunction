@@ -63,6 +63,18 @@ execute \
     at @s \
     run function imperium:kits/smokey/smoke_apply
 
+# Marking Dart (Smokey): the dart applies Bad Omen purely as an on-hit signal; convert any
+# hit player to the tracked im.marked tag (Summit wants a tag, not a status effect), then
+# tick the tag's 10s timer, expiry, and red marker particle.
+execute as @a if predicate imperium:has_bad_omen run function imperium:kits/smokey/mark_apply
+function imperium:kits/smokey/mark_tick
+
+# Venom (Livvy): the Venom Spray's Poison III is just the delivery signal; convert it to the
+# tracked im.venom tag and tick it as no-impact imperium:venom damage — keeps the smooth
+# no-impact poison without globally tagging vanilla magic damage.
+execute as @a if predicate imperium:has_venom run function imperium:kits/livvy/venom_apply
+function imperium:kits/livvy/venom_tick
+
 execute \
     as @a[advancements={imperium:leave_spawn=false}] \
     unless predicate imperium:at_spawn \

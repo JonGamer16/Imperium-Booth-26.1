@@ -17,14 +17,20 @@ execute \
     positioned 0.0 0.0 0.0 \
     run function player_motion:internal/math/looking_to_xyz with storage player_motion:math
 
-# Summon spectral arrow 0.3 blocks forward at eye level, tag it for targeting
+# Summon a Bad Omen tipped arrow 0.3 blocks forward at eye level, tag it for targeting.
+# Bad Omen is only the on-hit SIGNAL — vanilla has no native "arrow applied a tag", so the
+# arrow's held item carries it and imperium:loop converts any hit player to the im.marked
+# tag (then strips the effect). The Marked enchantment reads that tag for bonus damage.
+# Duration just needs to survive until the next loop tick catches it.
 execute at @s anchored eyes \
-    run summon minecraft:spectral_arrow ^ ^ ^0.3 {Tags:["im.dart_projectile"]}
+    run summon minecraft:arrow ^ ^ ^0.3 \
+        {Tags:["im.dart_projectile"],\
+         item:{id:"minecraft:tipped_arrow",count:1,components:{"minecraft:potion_contents":{custom_effects:[{id:"minecraft:bad_omen",amplifier:0,duration:1600}]}}}}
 
 # Apply direction as Motion and set owner (prevents self-hit grace period)
-data modify entity @e[type=spectral_arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
+data modify entity @e[type=arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
     Motion set from storage player_motion:math motion
-data modify entity @e[type=spectral_arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
+data modify entity @e[type=arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
     damage set value 2.0f
-data modify entity @e[type=spectral_arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
+data modify entity @e[type=arrow,tag=im.dart_projectile,limit=1,sort=nearest] \
     Owner set from entity @s UUID

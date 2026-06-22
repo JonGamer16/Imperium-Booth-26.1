@@ -3,7 +3,41 @@
 scoreboard players set @s givekit 3
 function imperium:arena/givekit
 
-tellraw @s ["",{text:"\n  "},{text:"Livvy the Vampire Spider",color:"red",bold:true},{text:"   The Bloodletter\n",color:"gray",italic:true,bold:false},{text:"  • ",color:"dark_gray"},{text:"Lifesteal Fang",color:"red"},{text:" — heals you on hit\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Leap Feather",color:"red"},{text:" — hop with brief Strength\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Throwable Web",color:"red"},{text:" — slows enemies\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Acid Potion",color:"red"},{text:" — Poison + Harming\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Beetroot Soup",color:"red"},{text:" — healing\n",color:"gray"}]
+tellraw @s \
+[   "",\
+    {           text:"\n  "},\
+    {color:"red",bold:true,\
+                text:"Livvy - The Vampire Spider \n\n"},\
+    {color:"gold",\
+                text:"  • [Melee] ",},\
+    {color:"red",\
+                text:"Lifesteal Fang",},\
+    {color:"gray",\
+                text:" — + Critical Damage; Attack to refill bowls with healing soup\n",},\
+    {color:"gold",\
+                text:"  • [Consumable] ",},\
+    {color:"red",\
+                text:"Leap Feather",},\
+    {color:"gray",\
+                text:" — Leap into the air and gain 1 second of Strength\n",},\
+    {color:"gold",\
+                text:"  • [Consumable] ",},\
+    {color:"red",\
+                text:"Throwable Web",},\
+    {color:"gray",\
+                text:" — Briefly traps enemies\n",},\
+    {color:"gold",\
+                text:"  • [Consumable] ",},\
+    {color:"red",\
+                text:"Acid Potion",},\
+    {color:"gray",\
+                text:" — Inflicts Harming 1 and rapid Poison that also powers up your melee attacks\n",},\
+    {color:"gold",\
+                text:"  • [Healing] ",},\
+    {color:"red",\
+                text:"Beetroot Soup x12",},\
+    {color:"gray",\
+                text:" — Heals 8 HP, and leaves a bowl that can be refilled\n",}]
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
-title @s actionbar {text:"Livvy the Vampire Spider selected",color:"red"}
+title @s actionbar {text:"Livvy selected",color:"red"}

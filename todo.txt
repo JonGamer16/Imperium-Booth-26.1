@@ -113,3 +113,77 @@ Booth Creation:
     o   Function Integration: Work my datapack into the Summit and Battlegrounds systems
     o   Battlegrounds Structure: Modify the Battle arena in a structure
     o   Battlegrounds Gamemode: Set up the entrance and the state engine for the active game
+
+Booth Integration:
+
+    Concept: two separate ticking worlds.
+        - Booth (the pagoda): ambient stuff (stands, dummy, lore, balloon vendor). Summit only
+          ticks this while a player is inside the bounding boxes, via ticking_functions.
+        - Battlegrounds (the PvP arena): the match. Players carry summit.battlegrounds.player and
+          are OUTSIDE the booth bounds, so booth ticking won't reach them; combat must tick here.
+        - Core refactor: split imperium:loop (currently all on minecraft:tick) into these two.
+
+    Booth Definition & Wiring:
+    /   on_player_enter namespace: change "booth/enter_booth" to "imperium:booth/enter_booth"
+    o   Ticking targets: create imperium:tick and imperium:5t (referenced in def but missing)
+    o   Loop split: move booth-only logic (check_stands) off minecraft:tick into imperium:tick
+    o   Reset hook: add a function to #summit:api/reset_player that undoes clear_kit + the
+            knockback/attack attribute changes from arena/givekit
+    o   Entity tagging: tag all booth entities with summit.booth_entity.imperium (+ summit.static)
+    o   Verify bounding boxes cover both entrances (front + cave at y59-75)
+
+    Booth Interior:
+    /   Entrances: expand enter_booth (currently just a title) with welcome + wall text
+    o   Cave reward: per-box on_player_enter on "cave" grants a one-time climb sticker/item
+    o   Kit stands -> Summit Interactions API: summon with Tags [summit.interactable, summit.static]
+            and data.summit_interactable.on_right_click = "execute on target run .../select"
+            - Summit handles the click and on target resolves there (why local on target failed)
+            - keep the custom UUID handler (handle_click) for local testing only
+    o   Reposition stand summons for the side kit-room (current setup_stands is a test row)
+    o   Training dummy: choose sulfur cube vs mummy mannequin, ability-damageable, auto-reset
+    o   Hidden kit items: placement + detection for the "find stray items" sticker
+
+    Collectibles:
+    o   Balloon vendor: place special:"balloon_vendor" interaction near entrance (20-min cooldown)
+            - confirm balloon model namespace (imperium:balloon/... vs summit_balloons:)
+    o   Stickers (1 of 5 defined, texture is a placeholder): define + texture the other 4
+            - enter booth, read all lore, use all abilities on dummy, find hidden items, win a match
+            - grant by granting advancement summit.sticker_book:imperium/<sticker_id>
+
+    Battlegrounds Match:
+    o   Register booth on load: summit.battlegrounds:api/register_booth
+            - needs return_pos/return_rot, struct_function, compatibility id (shared lobby), kit_function
+    o   Arena structure: build it, save as a structure, wire set_structure via struct_function
+    o   Kit carry-in: assign_kit / unassign_kit so the chosen kit enters the match (FFA deathmatch)
+    o   Hook function tags: player_enter, player_died, booth_active, booth_inactive
+            - guard each: unless data storage summit.battlegrounds:database session{booth_id:"imperium"} run return 0
+    o   Combat ticking during matches: booth ticking won't reach summit.battlegrounds.player
+            - decide: persistent tick (needs approval) vs self-scheduled clock started on
+              booth_active, stopped on booth_inactive  --  CONFIRM WITH COORDINATOR
+    o   Migrate Arena Systems (above) to gate on summit.battlegrounds.player + active booth,
+            off the global loop
+
+    Open Decisions:
+    o   Dummy entity: sulfur cube (Summit asset) vs custom mummy mannequin
+    o   Combat ticking method: persistent tick vs scheduled clock
+    o   Balloon model namespace: own RP vs summit_balloons
+
+Plan: Players can enter the booth from 2 places: the front entrance and the basement from a
+cave climb underneath. on_player_enter triggers on entering the bounds defined by me, so I 
+can set the floor to the top of the cave level with my entrance. From either way, they'll be 
+met with a welcome, some wall text, and maybe an item or sticker for getting through the 
+little cave climb I made. At the front, there will be an open dojo area with a training dummy, 
+either a sulfur cube or a mummy mannequin. I'll have a balloon giver set out for free not far 
+from the entrance. Kits will be obtainable from another room off to the side; I'll have to 
+adjust the armor stand summoning positions for it. Maybe players will be able to find stray 
+kit items hidden throughout the pagoda, earning a sticker for it if they do. Then, there's the 
+kits. Reading all their lore and figuring out how is worth a 3rd sticker. Within the booth, 
+they can attack the dummy with the abilities, which might be worth another sticker if they use 
+them all. Joining a Battlegrounds match and winning is definitely worth a sticker, making 5,
+which is the total allowed per booth. The staff mentioned cycling each booth's combat game in
+3-minute intervals. Others might have a certain arrangement of teams, but for Imperium, I 
+imagine a free-for-all deathmatch for however many players will be present. I'll share a 
+lobby with another booth for the Battlegrounds, and I imagine we'll both have our own sizable
+kit rosters, so I might have my armor stands shrunken down in there with the Scale attribute.
+I think players will be able to TP into the respective Battlegrounds lobby and queue a match
+for one of the PvP booths, more info needed.

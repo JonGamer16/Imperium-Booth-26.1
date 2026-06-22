@@ -11,7 +11,8 @@ summon minecraft:armor_stand ~ ~ ~ \
     CustomNameVisible:1b,\
     CustomName:{text:"Rastus",color:"blue",bold:true},\
     Tags:["im.booth_stand_model","im.booth_rastus","im.booth_new"],\
-    Pose:{RightArm:[-100f,0f,-10f],LeftArm:[-15f,0f,10f]}\
+    Rotation:[315f,0f],\
+    Pose:{Head:[9f,40f,0f],LeftLeg:[360f,358f,353f],RightLeg:[350f,43f,0f],LeftArm:[30f,0f,350f],RightArm:[312f,25f,338f]},\
 }
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
     armor.head loot imperium:rastus/display/head

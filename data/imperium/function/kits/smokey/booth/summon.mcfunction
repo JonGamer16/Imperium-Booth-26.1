@@ -12,7 +12,7 @@ summon minecraft:armor_stand ~ ~ ~ \
     CustomNameVisible:1b,\
     CustomName:{text:"Smokey Bat",color:"gold",bold:true},\
     Tags:["im.booth_stand_model","im.booth_smokey","im.booth_new"],\
-    Pose:{RightArm:[-100f,0f,-10f],LeftArm:[-15f,0f,10f]}\
+    Pose:{Body:[15f,0f,0f],Head:[69f,0f,0f],LeftLeg:[316f,0f,0f],RightLeg:[45f,0f,5f],LeftArm:[12f,0f,291f],RightArm:[15f,0f,72f]}\
 }
 
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
@@ -26,7 +26,7 @@ loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
     weapon.mainhand loot imperium:smokey/display/weapon
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
-    weapon.offhand loot imperium:smokey/potion
+    weapon.offhand loot imperium:smokey/display/offhand
 
 tag @e[type=armor_stand,tag=im.booth_new] remove im.booth_new
 

@@ -17,7 +17,7 @@
                 },
                 "minecraft:trim":{
                   "material": "netherite",
-                  "pattern": "wild"
+                  "pattern": "eye"
                 },
                 "minecraft:custom_name": {
                   "text": "Bounty Hunter Helmet",

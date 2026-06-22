@@ -23,8 +23,6 @@ function imperium:abilities/set_cd {kit:"Levent",slot:"C",base:150,stock:-1}
 function imperium:abilities/set_cd {kit:"Livvy",slot:"A",base:150,stock:-1}
 function imperium:abilities/set_cd {kit:"Livvy",slot:"B",base:150,stock:-1}
 function imperium:abilities/set_cd {kit:"Livvy",slot:"C",base:150,stock:-1}
-#   Damage Score (1/10 HP) needed for 1 soup; excludes damage taken
-scoreboard players set #lsThreshold im_lifesteal 160
 
 # Meowdy: A Leap, B Arrows  (C empty)
 function imperium:abilities/set_cd {kit:"Meowdy",slot:"A",base:100,stock:-1}

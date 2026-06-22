@@ -92,7 +92,7 @@ item replace entity @s hotbar.1 with \
         },\
         use_effects={speed_multiplier:1},\
         !max_damage,\
-        item_model="minecraft:wooden_axe",\
+        item_model="minecraft:stone_axe",\
         custom_name={text:"Bearded Hatchet",color:gold,italic:false},\
         custom_data={"imperium_kit":1b},\
     ] 1

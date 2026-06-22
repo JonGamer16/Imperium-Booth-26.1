@@ -1,8 +1,15 @@
 # Runs once, as a freshly-thrown Smoke Bomb cloud, at its position
 tag @s add im.smoke_bomb
 
-# 10s duration, constant 3-block radius, no shrink on use or over time
-data merge entity @s {Duration:200,Radius:3.0f,RadiusOnUse:0.0f,RadiusPerTick:0.0f,WaitTime:0}
+# Constant 3-block radius, no shrink on use or over time; lifetime from #SmokeDuration
+# (main/ability_parameters).
+data merge entity @s {Radius:3.0f,RadiusOnUse:0.0f,RadiusPerTick:0.0f,WaitTime:0}
+execute store result entity @s Duration int 1 run scoreboard players get #SmokeDuration im.param
 
 # One thick puff of signal smoke
-particle minecraft:campfire_signal_smoke ~ ~1 ~ 1.5 0.6 1.5 0.002 700 normal @a
+execute \
+    as @a[tag=!im.kit_smokey] \
+    run particle minecraft:campfire_signal_smoke ~ ~1 ~ 1.5 0.6 1.5 0.002 700 normal @s
+execute \
+    as @a[tag=im.kit_smokey] \
+    run particle minecraft:campfire_signal_smoke ~ ~0.2 ~ 1.5 0 1.5 0.002 100 normal @s

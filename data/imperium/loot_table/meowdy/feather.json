@@ -12,6 +12,14 @@
               "components": {
                 "minecraft:consumable": {
                   "consume_seconds": 0,
+                  "on_consume_effects": [
+                    {
+                      "type": "apply_effects",
+                      "effects": [
+                        {"id": "minecraft:speed","amplifier": 1,"duration": 100,"show_particles": true}
+                      ]
+                    }
+                  ],
                   "has_consume_particles": false,
                   "animation": "spear",
                   "sound": "minecraft:entity.bat.takeoff"

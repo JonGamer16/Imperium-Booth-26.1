@@ -23,9 +23,7 @@
                         "condition": "minecraft:entity_properties",
                         "entity": "this",
                         "predicate": {
-                            "effects": {
-                                "minecraft:glowing": {}
-                            }
+                            "nbt": "{Tags:[\"im.marked\"]}"
                         }
                     }
                 ]

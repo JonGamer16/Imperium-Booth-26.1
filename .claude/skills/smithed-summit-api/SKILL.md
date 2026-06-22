@@ -23,6 +23,18 @@ When working on Smithed Summit or Baobab Battlegrounds tasks, consult the releva
 - **Sticker Book** (`c:\Users\jonag\AppData\Roaming\.minecraft\saves\! IM Datapack Testing 26.2\datapacks\! Imperium Booth 26.2\.claude\Smithed API\Sticker Book.md`) — Sticker system for player progression/rewards
 - **Balloons** (`c:\Users\jonag\AppData\Roaming\.minecraft\saves\! IM Datapack Testing 26.2\datapacks\! Imperium Booth 26.2\.claude\Smithed API\Balloons.md`) — Balloon cosmetics and display mechanics
 
+## Server Constraints (Summit staff rules)
+
+Hard rules enforced by Summit staff — follow these when authoring or reviewing pack files:
+
+- **Do not overwrite vanilla content in the `minecraft` namespace.** Any file under `data/minecraft/` that shares an id with vanilla content (enchantments, recipes, loot tables, advancements, vanilla tag *entries*) is a prohibited override.
+  - **Enchantments:** never override `data/minecraft/enchantment/*`. Define a custom enchant in the `imperium` namespace instead (e.g. vanilla Power doesn't work on crossbows → use `imperium:crossbow_power` and put it on the item).
+  - **Damage-type tags must stay additive and custom-only.** Custom damage types can *only* join vanilla tags (`no_impact`, `bypasses_shield`, `bypasses_cooldown`, etc.) via a file at that exact `data/minecraft/tags/damage_type/<tag>.json` path — there is no other namespace that works, and that's allowed *as long as the file lists only `imperium:` damage types*. Adding **vanilla** damage types (`minecraft:magic`, `wither`, `arrow`, …) to those tags is a prohibited global override of vanilla behavior — strip them and find a per-mechanic workaround.
+  - **Recipes / other vanilla tags** (e.g. `tags/enchantment/curse`) under `minecraft/` are overrides too — avoid them.
+  - **Allowed exception:** `data/minecraft/tags/function/load.json` and `tick.json` are the required datapack load/tick hooks, not overrides — keep them.
+- **No-impact / i-frame-bypass without overriding vanilla:** a damage type only gets no-flinch / cooldown-bypass behavior from the vanilla `#no_impact` / `#bypasses_cooldown` tags. To get it for a mechanic that normally uses a vanilla damage type (e.g. poison = `minecraft:magic`), deal a **custom `imperium:` damage type** via a small DoT instead, and add only that custom type to the tag (see Livvy's `imperium:venom`).
+- **Prohibited status effects:** Glowing is banned. Prefer **entity tags** (with a scoreboard timer) over status effects for tracking marks/states (see Smokey's `im.marked`, Livvy's `im.venom`).
+
 ## When to Use This Skill
 
 **Use this skill when:**

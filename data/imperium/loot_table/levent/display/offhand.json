@@ -5,15 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "minecraft:netherite_sword",
-          "functions": [
-            {
-              "function": "minecraft:set_components",
-              "components": {
-                "minecraft:item_model": "minecraft:bow"
-              }
-            }
-          ]
+          "name": "chorus_flower"
         }
       ]
     }

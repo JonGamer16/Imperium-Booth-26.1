@@ -33,9 +33,10 @@ item replace entity @s armor.legs with \
     netherite_leggings[\
         !max_damage,\
         !attribute_modifiers,\
-        item_model="minecraft:chainmail_leggings",\
-        equippable={slot:legs,asset_id:"minecraft:chainmail"},\
-        custom_name={color:"gold",italic:false,text:"Meowdy's Leggings"},\
+        item_model="minecraft:leather_leggings",\
+        equippable={slot:legs,asset_id:"minecraft:leather"},\
+        dyed_color=16753920,\
+        custom_name={color:"gold",italic:false,text:"Meowdy's Pants"},\
         custom_data={"imperium_kit":1b},\
     ] 1
 item replace entity @s armor.feet with \
@@ -45,7 +46,7 @@ item replace entity @s armor.feet with \
         item_model="minecraft:leather_boots",\
         equippable={slot:feet,asset_id:"minecraft:leather"},\
         custom_name={color:"gold",italic:false,text:"Meowdy's Boots"},\
-        dyed_color=4673362,\
+        dyed_color=14011067,\
         custom_data={"imperium_kit":1b},\
     ] 1
 # colors: 16753920 helmet, 4673362 boots

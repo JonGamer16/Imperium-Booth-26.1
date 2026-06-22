@@ -8,7 +8,7 @@ tellraw @s \
     {bold:false,\
         text:"\n\n"},\
     {color:"red",italic:true,\
-        text:"An innocent little village girl liked to play with the bugs on the ground, \
+        text:" An innocent little village girl liked to play with the bugs on the ground, \
         but one day she suffered a fatal spider bite. Her parents would do anything \
         to save her. Luckily, they found their 'traveling doctor', who managed to \
         stop the poison! All it took was a fusion that transformed her into a \

@@ -1,4 +1,4 @@
-#   Cyborg Mummy
+#   Warforged Mummy
 
 function imperium:util/clear_kit
 

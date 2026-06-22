@@ -11,10 +11,7 @@ summon minecraft:armor_stand ~ ~ ~ \
     CustomNameVisible:1b,\
     CustomName:{text:"Quin Meowdy",color:"gold",bold:true},\
     Tags:["im.booth_stand_model","im.booth_meowdy","im.booth_new"],\
-    Pose:\
-    {   Head:[7f,0f,0f],Body:[356f,0f,3f],\
-        LeftArm:[284f,3f,13f],RightArm:[307f,0f,13f],\
-        LeftLeg:[341f,0f,9f],RightLeg:[0f,0f,30f]}\
+    Pose:{Body:[0f,10f,7f],LeftLeg:[0f,0f,12f],RightLeg:[0f,0f,40f],LeftArm:[277f,20f,9f],RightArm:[284f,343f,360f]}\
 }
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
     armor.head loot imperium:meowdy/display/head

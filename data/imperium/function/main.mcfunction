@@ -5,16 +5,30 @@ scoreboard objectives add onKill dummy
 scoreboard objectives add summonerID dummy
 # Shared scratch objective (set_cd macro, lifesteal_soup, etc.) — needed before the setup calls
 scoreboard objectives add im.temp dummy
+# Booth click routing: holds clicker/candidate UUID ints for imperium:booth/handle_click
+scoreboard objectives add im_booth_uuid dummy
+# Smokey Mark: per-player 10s tag timer + the shared #markClock particle clock
+scoreboard objectives add im_markTimer dummy
+# Livvy Venom: per-player 3s DoT timer + the shared #venomClock damage clock
+scoreboard objectives add im_venomTimer dummy
+# Centralized ability tuning constants (see main/ability_parameters)
+scoreboard objectives add im.param dummy
 
 # Grouped setup (see data/imperium/function/main/). Order matters:
 #   constants must exist before ability_cooldowns (init_cooldowns macro reads them);
 #   the setdisplay lines below need HP (game_triggers) and totalKills (old_objectives).
-function imperium:main/gamerules
+
+#function imperium:main/gamerules
+#   Gamerules can't be changed in the summit
 function imperium:main/enchantments
 function imperium:main/game_triggers
 function imperium:main/constants
 function imperium:main/ability_cooldowns
 function imperium:main/old_objectives
+
+# Ability tuning constants (durations, intervals, thresholds). After old_objectives so every
+# mechanic objective it writes to (im_lifesteal, im.param, …) already exists.
+function imperium:main/ability_parameters
 
 # HUD displays
 scoreboard objectives setdisplay below_name HP

@@ -56,8 +56,8 @@ item replace entity @s armor.feet with \
 item replace entity @s hotbar.0 with \
     netherite_sword[\
         !max_damage,\
-        item_model="minecraft:end_rod",\
-        custom_name={color:"light_purple",italic:false,text:"End Rod"},\
+        item_model="minecraft:breeze_rod",\
+        custom_name={color:"light_purple",italic:false,text:"Light Rod"},\
         attribute_modifiers=[\
             {type:"attack_damage",amount:4,operation:"add_value",slot:"mainhand",id:"base_attack_damage"},\
             {type:"attack_speed",amount:-2,operation:"add_value",slot:"mainhand",id:"base_attack_speed"}\

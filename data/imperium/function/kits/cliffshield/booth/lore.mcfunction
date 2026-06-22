@@ -8,9 +8,9 @@ tellraw @s \
     {bold:false,\
         text:"\n\n"},\
     {color:"yellow",italic:true,\
-        text:"This great, dignified elephant of a soldier was the faithful Magister \
+        text:" This great, dignified elephant of a soldier was the faithful Magister \
         Militum of Miracaelia...before it was brought to smithereens by raiders. So \
         he found a new home, bolstering his military valor in the Oaken Kingdom of \
         Divinica...which was also raided. Yet he survived, and now he seeks to \
-        rebuild a kingdom that his surviving family can be safe in.\n"}\
+        rebuild a kingdom that his surviving family can finally be safe in.\n"}\
 ]

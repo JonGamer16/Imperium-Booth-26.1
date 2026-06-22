@@ -3,7 +3,51 @@
 scoreboard players set @s givekit 1
 function imperium:arena/givekit
 
-tellraw @s ["",{text:"\n  "},{text:"Jeru Cliffshield",color:"yellow",bold:true},{text:"   The Bulwark\n",color:"gray",italic:true,bold:false},{text:"  • ",color:"dark_gray"},{text:"Silver Glaive",color:"yellow"},{text:" — long reach, slow, low knockback\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Steel Broadsword",color:"yellow"},{text:" — Sweeping Edge, knockback resist\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Light Crossbow",color:"yellow"},{text:" — Power I bolts\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Shield",color:"yellow"},{text:" — 30 HP block, wide angle\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Rook Rush",color:"yellow"},{text:" — burst of Speed\n",color:"gray"},{text:"  • ",color:"dark_gray"},{text:"Mushroom Stew",color:"yellow"},{text:" — healing\n",color:"gray"}]
+tellraw @s \
+[   "",\
+    {\
+                            text:"\n  "},\
+    {color:"yellow",bold:true,\
+                            text:"Jeru Cliffshield - The Wandering Sentinel"},\
+    {bold:false,\
+                            text:"\n\n"},\
+    {color:"gold",\
+                            text:"  • [Melee] "},\
+    {color:"yellow",\
+                            text:"Silver Glaive"},\
+    {color:"gray",\
+                            text:" — Increased Reach and Damage; - Attack Speed; - Knockback (KB) Resist\n"},\
+    {color:"gold",\
+                            text:"  • [Melee] "},\
+    {color:"yellow",\
+                            text:"Steel Broadsword"},\
+    {color:"gray",\
+                            text:" — Sweeping Edge; KB Resist\n"},\
+    {color:"gold",\
+                            text:"  • [Ranged] "},\
+    {color:"yellow",\
+                            text:"Heavy Crossbow"},\
+    {color:"gray",\
+                            text:" — Power 1 bolts\n"},\
+    {color:"gold",\
+                            text:"  • [Consumable] "},\
+    {color:"yellow",\
+                            text:"Tower Shield"},\
+    {color:"gray",\
+                            text:" — + Delay, - Blocking Angle, - KB Blocked\n"},\
+    {color:"gold",\
+                            text:"  • [Consumable] "},\
+    {color:"yellow",\
+                            text:"Rook Rush"},\
+    {color:"gray",\
+                            text:" — Extreme Speed for 1 second\n"},\
+    {color:"gold",\
+                            text:"  • [Healing] "},\
+    {color:"yellow",\
+                            text:"Mushroom Stew x16"},\
+    {color:"gray",\
+                            text:" — Heals 8 HP\n"}\
+]
 
 playsound minecraft:block.note_block.pling master @s ~ ~ ~ 0.7 1.4
 title @s actionbar {text:"Jeru Cliffshield selected",color:"yellow"}

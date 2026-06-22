@@ -1,4 +1,4 @@
-# Summon the Cyborg Mummy selection stand: a bare display stand, then equip its
+# Summon the Warforged Mummy selection stand: a bare display stand, then equip its
 # show-only gear from the booth display loot tables (imperium:mummy/display/*).
 # Edit those tables to restyle the stand — the givekit function stays separate.
 # Run once where you want the stand (or use imperium:booth/setup_stands for a test row).
@@ -11,7 +11,8 @@ summon minecraft:armor_stand ~ ~ ~ \
     CustomNameVisible:1b,\
     CustomName:{text:"Mummy",color:"gray",bold:true},\
     Tags:["im.booth_stand_model","im.booth_mummy","im.booth_new"],\
-    Pose:{RightArm:[-100f,0f,-10f],LeftArm:[-15f,0f,10f]}\
+    Rotation:[20f,0f],\
+    Pose:{Head:[7f,343f,0f],LeftLeg:[337f,343f,0f],RightLeg:[17f,360f,5f],LeftArm:[244f,346f,10f],RightArm:[335f,360f,18f]}\
 }
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
     armor.head loot imperium:mummy/display/head

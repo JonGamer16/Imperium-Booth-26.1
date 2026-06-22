@@ -8,7 +8,7 @@ tellraw @s \
     {bold:false,\
         text:"\n\n"},\
     {color:"yellow",italic:true,\
-        text:"As the great bounty hunter Smokey Bat searched for a worthy protege, he \
+        text:" As the great bounty hunter Smokey Bat searched for a worthy protege, he \
         settled on a candidate no one would expect: his talking cat. He was more than \
         capable with his agility and reflexes, even picking up new skills quickly...\
         but that's mostly because the local saloon always had snacks to sneak.\n"}\

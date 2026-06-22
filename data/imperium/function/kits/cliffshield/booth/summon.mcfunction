@@ -11,11 +11,7 @@ summon minecraft:armor_stand ~ ~ ~ \
     CustomNameVisible:1b,\
     CustomName:{text:"Jeru Cliffshield",color:"yellow",bold:true},\
     Tags:["im.booth_stand_model","im.booth_cliffshield","im.booth_new"],\
-    Pose:\
-    {   Body:[5f,0f,0f],Head:[5f,330f,0f],\
-        LeftArm:[299f,17f,13f],RightArm:[344f,360f,52f],\
-        LeftLeg:[346f,325f,0f],RightLeg:[352f,58f,0f],\
-    }\
+    Pose:{Body:[7f,14f,0f],Head:[5f,335f,0f],LeftLeg:[346f,325f,0f],RightLeg:[360f,14f,13f],LeftArm:[277f,23f,0f],RightArm:[337f,341f,50f]}\
 }
 loot replace entity @e[type=armor_stand,tag=im.booth_new,limit=1] \
     armor.head loot imperium:cliffshield/display/head

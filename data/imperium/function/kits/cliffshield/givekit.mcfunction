@@ -85,7 +85,7 @@ item replace entity @s hotbar.0 with \
 #   [TOOL] Light Crossbow
 item replace entity @s hotbar.2 with \
     crossbow[\
-        enchantments={"minecraft:power":1},\
+        enchantments={"imperium:leverage":1},\
         !max_damage,\
         custom_name={text:"Light Crossbow",color:"yellow",italic:false},\
         custom_data={"imperium_kit":1b},\
